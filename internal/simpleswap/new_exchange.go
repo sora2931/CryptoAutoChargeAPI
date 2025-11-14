@@ -7,7 +7,7 @@ import (
 	"coin/internal/utils"
 )
 
-func buildPayload(cryptoType, amount string) (payload Payload) {
+func buildPayload(cryptoType, amount string) (payload *Payload) {
 	return Payload{
 		AddressTo: utils.Cfg.Address,
 		Amount: amount,
@@ -32,7 +32,7 @@ func buildPayload(cryptoType, amount string) (payload Payload) {
 	}
 }
 
-func postJSON(apiUrl string, payload Payload) (resp *http.Response) {
+func postJSON(apiUrl string, payload *Payload) (resp *http.Response) {
 	data, err := json.Marshal(payload)
 	if utils.CheckError(err) {
 		return nil
