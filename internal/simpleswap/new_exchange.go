@@ -8,7 +8,7 @@ import (
 )
 
 func buildPayload(cryptoType, amount string) (payload *Payload) {
-	return Payload{
+	return &Payload{
 		AddressTo: utils.Cfg.Address,
 		Amount: amount,
 		Campaign: nil,
